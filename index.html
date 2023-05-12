@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Plain Text Tracer</title>
+    <title>ASCII Tracer</title>
     <script src="/assets/js/vendor/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
     <script src="/assets/js/vendor/jquery-caret.js"></script>
     <script src="/assets/js/vendor/p5.min.js" integrity="sha512-3RlxD1bW34eFKPwj9gUXEWtdSMC59QqIqHnD8O/NoTwSJhgxRizdcFVQhUMFyTp5RwLTDL0Lbcqtl8b7bFAzog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -14,31 +14,41 @@
   </head>
   <body>
     <main>
-      <div class="row">
-        <a href="#" class="toggle-controls">Controls</a>
-
-        <div class="controls hidden">
+      <div class="control-panel">
+        <div class="control-panel-header">
+          <a href="https://bradysheridan.com/" target="_blank" class="home-button">
+            <span>*</span>
+          </a>
+  
+          <h5>ASCII Tracer</h5>
+        </div>
+  
+        <!-- <a href="#" class="toggle-controls">
+          Controls
+        </a> -->
+  
+        <div class="controls">
           <form>
             <span>
               <label for="presketch-image">Pre-sketch image</label>
               <input multiple type="file" name="presketch-image" accept="image/png, image/jpg, image/jpeg">
             </span>
-
+  
             <span>
               <label for="sketch-background-image">Sketch background image</label>
               <input type="file" name="sketch-background-image" accept="image/png, image/jpg, image/jpeg">
             </span>
-
+  
             <span>
               <label for="size">Sketch size: 450px</label>
               <input name="size" type="range" min="1" max="1000" value="450">
             </span>
-
+  
             <span>
               <label for="edge-detection-threshold">Edge detection threshold: 10</label>
               <input name="edge-detection-threshold" type="range" min="1" max="255" value="10">
             </span>
-
+  
             <span>
               <label for="cars">Edge detection algorithm</label>
               <select name="edge-detection-algorithm">
@@ -47,11 +57,11 @@
                 <option value="y-direction-kernel">Y-Direction Kernel (TBA)</option>
               </select>
             </span>
-
+  
             <span>
               <input type="button" name="download-sketch-frame" value="Download sketch frame" />
             </span>
-
+  
             <!-- <span>
               <input name="submit-redraw" type="button" value="Redraw" style="flex:1;background-color:green;color:white;cursor:pointer;border:none;border-radius:6px;padding:6px;">
             </span> -->
@@ -59,8 +69,9 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row focused-frame-area">
         <div class="col">
+          <p>Original image</p>
           <img id="presketch-image" src="#" style="display: none;">
           <div id="p5-canvas-wrap">
           </div>
@@ -69,6 +80,7 @@
         <span style="color: black; font-size: 38px; margin-top: 200px;">⤏</span>
 
         <div class="col">
+          <p>ASCII Sketch</p>
           <div id="plain-text-sketch">
             <img id="sketch-background-image" />
             <pre id="sketch" contentEditable></pre>
@@ -76,5 +88,11 @@
         </div>
       </div>
     </main>
+
+    <div class="frame-preview-list">
+      <div class="frame-preview" id="frame-preview-1">
+        <p class="frame-number">1</p>
+      </div>
+    </div>
   </body>
 </html>

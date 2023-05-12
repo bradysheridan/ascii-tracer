@@ -17,9 +17,9 @@ GET_SKETCH_CHAR = (pixelWeight, options) => {
   if (!charsByPixelWeightArr) {
     charsByPixelWeightArr = [
       [0, 60, "."],
-      [60, 120, ","],
-      [120, 180, "+"],
-      ["|"]
+      [60, 120, "+"],
+      [120, 180, "♥"],
+      ["*"]
     ];
   }
 

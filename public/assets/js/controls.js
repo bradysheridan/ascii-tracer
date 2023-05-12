@@ -128,6 +128,12 @@ $(function() {
         let elSketchWrap = $("#plain-text-sketch").clone();
         elSketchWrap.attr("data-frame-number", frameNumber);
         $("#plain-text-sketch").parent().append(elSketchWrap)
+
+        let elFramePreview = $("#frame-preview-1").clone();
+        elFramePreview.attr("id", `frame-preview-${frameNumber}`);
+        elFramePreview.attr("data-frame-number", frameNumber);
+        elFramePreview.find(".frame-number").html(frameNumber);
+        $(".frame-preview-list").append(elFramePreview);
       }
 
       // load image
